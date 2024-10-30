@@ -1,0 +1,26 @@
+<app-nav-bar/>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Lista de Proyectos</h2>
+  
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Fin</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let proyecto of proyectos">
+                <td>{{ proyecto.Codigo }}</td>
+                <td>{{ proyecto.Descripcion }}</td>
+                <td>{{ proyecto.Fecha_Inicio | date:'dd/MM/yyyy' }}</td>
+                <td>{{ proyecto.Fecha_Fin | date:'dd/MM/yyyy' }}</td>
+                <td>{{ proyecto.Monto }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

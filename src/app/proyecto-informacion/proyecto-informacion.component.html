@@ -1,0 +1,43 @@
+<app-nav-bar/>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Proyectos de la Empresa</h2>
+    
+    <div class="form-group">
+        <label for="empresaId">Ingrese el ID de la Empresa:</label>
+        <input type="number" id="empresaId" class="form-control" [(ngModel)]="empresaId">
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="getProyectosPorEmpresa()">Consultar Proyectos</button>
+
+    <table class="table table-striped mt-4" *ngIf="proyectos.length > 0">
+        <thead>
+            <tr>
+                <th>ID Proyecto</th>
+                <th>Nombre Proyecto</th>
+                <th>ID Consultor</th>
+                <th>ID Empresa</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Fin</th>
+                <th>Monto</th>
+                <th>Estado</th>
+                <th>Nombre Empresa</th>
+                <th>Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let proyecto of proyectos">
+                <td>{{ proyecto.ID_Proyecto }}</td>
+                <td>{{ proyecto.Nombre_Proyecto }}</td>
+                <td>{{ proyecto.ID_Consultor }}</td>
+                <td>{{ proyecto.ID_Empresa }}</td>
+                <td>{{ proyecto.fecha_inicio | date:'dd/MM/yyyy' }}</td>
+                <td>{{ proyecto.fecha_fin | date:'dd/MM/yyyy' }}</td>
+                <td>{{ proyecto.monto }}</td>
+                <td>{{ proyecto.estado }}</td>
+                <td>{{ proyecto.Nombre_Empresa }}</td>
+                <td>{{ proyecto.Direccion }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

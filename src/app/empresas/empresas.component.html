@@ -1,0 +1,27 @@
+<app-nav-bar/>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Empresas</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID Empresa</th>
+        <th>Nombre Empresa</th>
+        <th>Total Proyectos</th>
+        <th>Consultores</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empresa of empresas">
+        <td>{{ empresa.ID_Empresa }}</td>
+        <td>{{ empresa.Nombre_Empresa }}</td>
+        <td>{{ empresa.Total_Proyectos }}</td>
+        <td>{{ empresa.Consultores ? empresa.Consultores : 'No hay consultores' }}</td>
+      </tr>
+      <tr *ngIf="empresas.length === 0">
+        <td colspan="5" class="text-center">No se encontraron registros.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

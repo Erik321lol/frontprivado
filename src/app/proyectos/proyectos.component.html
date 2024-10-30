@@ -1,0 +1,40 @@
+<app-nav-bar/>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Lista de Proyectos</h2>
+  
+    <!-- Campo para buscar proyectos por ID del consultor -->
+    <div class="mb-3">
+      <label for="consultorInput" class="form-label">ID del Consultor</label>
+      <input type="number" 
+             id="consultorInput" 
+             [(ngModel)]="idConsultor" 
+             class="form-control" 
+             placeholder="Ej. 1">
+      <button (click)="consultarProyectos()" class="btn btn-primary mt-2">Consultar</button>
+    </div>
+  
+    <!-- Tabla de proyectos -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Código Proyecto</th>
+          <th scope="col">Nombre Proyecto</th>
+          <th scope="col">Nombre Empresa</th>
+          <th scope="col">Nombre Consultor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proyecto of proyectos">
+          <td>{{ proyecto.Codigo_Proyecto }}</td>
+          <td>{{ proyecto.Nombre_Proyecto }}</td>
+          <td>{{ proyecto.Nombre_Empresa }}</td>
+          <td>{{ proyecto.Nombre_Consultor }}</td>
+        </tr>
+        <tr *ngIf="proyectos.length === 0">
+          <td colspan="4" class="text-center">No se encontraron proyectos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,36 @@
+<app-nav-bar/>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Proyectos</h2>
+
+    <div class="form-group">
+        <label for="estadoSelect">Seleccione un Estado:</label>
+        <select id="estadoSelect" class="form-control" [(ngModel)]="estadoId" (change)="onEstadoChange(estadoId)">
+            <option *ngFor="let estado of estados" [value]="estado.ID_Estado">{{ estado.Descripcion }}</option>
+        </select>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Fin</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let proyecto of proyectos">
+                <td>{{ proyecto.Codigo_Proyecto }}</td>
+                <td>{{ proyecto.Descripcion }}</td>
+                <td>{{ proyecto.Fecha_Inicio | date:'dd/MM/yyyy' }}</td>
+                <td>{{ proyecto.Fecha_Fin | date:'dd/MM/yyyy' }}</td>
+                <td>{{ proyecto.Monto }}</td>
+            </tr>
+            <tr *ngIf="proyectos.length === 0">
+                <td colspan="5" class="text-center">No se encontraron proyectos.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

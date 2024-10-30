@@ -1,0 +1,34 @@
+<app-nav-bar/>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Consultores</h2>
+
+  <!-- Campo para buscar consultores por apellido y botón para consultar -->
+  <div class="mb-3">
+    <label for="apellidoInput" class="form-label">Buscar Consultores por Apellido</label>
+    <input type="text" id="apellidoInput" [(ngModel)]="apellido" class="form-control" placeholder="Ej. G">
+    <button (click)="cargarConsultores()" class="btn btn-primary mt-2">Consultar</button>
+  </div>
+
+  <!-- Tabla de consultores -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Teléfono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let consultor of consultores">
+        <td>{{ consultor.Codigo }}</td>
+        <td>{{ consultor.Nombre }}</td>
+        <td>{{ consultor.Apellido }}</td>
+        <td>{{ consultor.No_Telefono }}</td>
+      </tr>
+      <tr *ngIf="consultores.length === 0">
+        <td colspan="5" class="text-center">No se encontraron registros.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

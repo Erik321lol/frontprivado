@@ -1,0 +1,38 @@
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <form id="registerForm" class="bg-light p-4 rounded shadow" (ngSubmit)="onSubmit()" style="max-width: 600px; width: 100%;">
+        <h2 class="text-center mb-4">Crear Usuario</h2>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" class="form-control" [(ngModel)]="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+            <div *ngIf="nombreError" class="text-danger">{{ nombreError }}</div> <!-- Mensaje de error para el nombre -->
+        </div>
+        <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" class="form-control" [(ngModel)]="apellido" name="apellido" placeholder="Ingresa tu apellido" required>
+            <div *ngIf="apellidoError" class="text-danger">{{ apellidoError }}</div> <!-- Mensaje de error para el apellido -->
+        </div>
+        <div class="form-group">
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" class="form-control" [(ngModel)]="correo" name="correo" placeholder="Ingresa tu correo" required>
+            <div *ngIf="correoError" class="text-danger">{{ correoError }}</div> <!-- Mensaje de error para el correo -->
+        </div>
+        <div class="form-group">
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" class="form-control" [(ngModel)]="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
+            <div *ngIf="contrasenaError" class="text-danger">{{ contrasenaError }}</div> <!-- Mensaje de error para la contraseña -->
+        </div>
+        <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" class="form-control" [(ngModel)]="direccion" name="direccion" placeholder="Ingresa tu dirección" required>
+            <div *ngIf="direccionError" class="text-danger">{{ direccionError }}</div> <!-- Mensaje de error para la dirección -->
+        </div>
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" class="form-control" [(ngModel)]="telefono" name="telefono" placeholder="Ingresa tu número de teléfono" required>
+            <div *ngIf="telefonoError" class="text-danger">{{ telefonoError }}</div> <!-- Mensaje de error para el teléfono -->
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Crear Usuario</button>
+        <div id="message" class="message mt-3 text-success">{{ message }}</div>
+    </form>
+</div>

@@ -1,0 +1,43 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Gestión de Usuarios</h2>
+  <!-- Tabla de usuarios -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.correo }}</td>
+        <td>
+          <button (click)="prepararEdicion(usuario)" class="btn btn-warning btn-sm">Editar</button>
+          <button (click)="eliminarUsuario(usuario.id)" class="btn btn-danger btn-sm">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Formulario para editar usuarios -->
+  <div *ngIf="usuarioEditado" class="mb-4">
+    <h3>Editar Usuario</h3>
+    <div class="input-group mb-3">
+      <input type="text" 
+             [(ngModel)]="usuarioEditado.nombre" 
+             name="nombreEdit" 
+             class="form-control" 
+             required>
+      <input type="email" 
+             [(ngModel)]="usuarioEditado.correo" 
+             name="correoEdit" 
+             class="form-control" 
+             required>
+      <button (click)="editarUsuario()" class="btn btn-success">Guardar Cambios</button>
+    </div>
+  </div>
+</div>
