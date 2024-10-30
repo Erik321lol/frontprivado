@@ -1,3 +1,3 @@
 [build]
   command = "npm run build"    # Comando para construir tu aplicación Angular
-  publish = "dist/privado"     # Directorio donde Angular publica los archivos después de la construcción
+  publish = "dist/privado/"     # Directorio donde Angular publica los archivos después de la construcción
